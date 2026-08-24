@@ -27,78 +27,111 @@
 <p class="meta">
   Developer: <strong>Domnup</strong> &nbsp;·&nbsp;
   Contact: <strong>domnup@gmail.com</strong> &nbsp;·&nbsp;
-  Effective date: <strong>16 August 2026</strong>
+  Effective date: <strong>24 August 2026</strong>
 </p>
 
 <div class="highlight">
-  <strong>Summary:</strong> Good Old Dashcam does not collect, transmit, or share any personal data.
-  Everything the app records — video, audio, location and sensor data — stays on your device,
-  in Android app-specific storage. There are no user accounts, no analytics, no advertising,
-  and the app has no internet permission.
+  <strong>Summary:</strong> Good Old Dashcam does not collect or transmit your recordings or telemetry to the developer.
+  Video, optional audio, optional location and sensor data are processed and stored locally on your device.
+  There are no user accounts, analytics or advertising, and the app has no Internet permission.
+  Files leave the app only when you explicitly choose to share or export them using Android.
 </div>
 
 <h2>1. What the app does</h2>
 <p>
-  Good Old Dashcam turns an Android phone into a dashcam. It records loop video while you drive,
-  displays live telemetry (speed, GPS position, G-force), detects driving events such as hard
-  braking or impacts, and keeps a local log of those events. It is designed to work fully offline.
+  Good Old Dashcam turns an Android phone into a dashcam. It can record loop video, display live
+  telemetry such as speed, GPS position and G-force, detect events such as hard braking or impacts,
+  protect incident footage, and keep a local event log. It is designed to work fully offline.
 </p>
 
 <h2>2. Information the app accesses on your device</h2>
-<p>To provide these features, the app uses the following, all handled locally on your phone:</p>
+<p>To provide these features, the app may use the following, all handled locally on your phone:</p>
 <ul>
-  <li><strong>Camera</strong> — to record the road ahead as video clips.</li>
-  <li><strong>Microphone (optional)</strong> — to record audio alongside video, only if you enable it in Settings.</li>
-  <li><strong>Location (GPS/network)</strong> — to show and record speed, heading and coordinates as part of the on-screen telemetry and event log. Location is accessed only for a user-started recording session when GPS telemetry is enabled. It may continue while that foreground recording session is active, including when the screen is locked. The app does not request the Android background-location permission.</li>
-  <li><strong>Motion sensors</strong> — the accelerometer and gyroscope, to measure G-force and detect events such as hard braking or a collision.</li>
+  <li><strong>Camera</strong> — to record dashcam video.</li>
+  <li><strong>Microphone (optional)</strong> — to record audio with video only if you enable audio in Settings and grant microphone permission.</li>
+  <li><strong>Location (optional)</strong> — to provide speed, heading, coordinates and GPX route data when GPS telemetry is enabled. Location is accessed only for a user-started recording session and may continue while that foreground recording session remains active, including when the screen is locked. The app does not request Android background-location permission.</li>
+  <li><strong>Motion sensors</strong> — accelerometer and gyroscope data used for G-force telemetry, mounting calibration and incident detection.</li>
+  <li><strong>Device status</strong> — battery temperature, thermal status and storage availability used locally to display status and protect recording reliability.</li>
 </ul>
 
 <h2>3. Where your data is stored</h2>
 <p>
-  All recordings and data are written only to Android app-specific storage on your
-  device (for example, video is saved with <code>getExternalFilesDir</code> and the event log in a
-  local database). This data:
+  Recordings and telemetry are stored in Android app-specific storage on your device. Video is normally
+  written under the app's external-files area, while event information and preferences are kept in local
+  app storage. Depending on enabled features, the app may create MP4 video, GPX route files, telemetry CSV
+  files, event records and temporary incident/export packages.
 </p>
 <ul>
-  <li>is never uploaded, transmitted, or sent to the developer or any third party;</li>
-  <li>is kept in Android app-specific storage; access is controlled by Android unless you explicitly share or export a copy;</li>
-  <li>is removed when you uninstall the app.</li>
+  <li>The app does not upload these files automatically.</li>
+  <li>Good Old Dashcam has no Internet permission.</li>
+  <li>App-specific files are normally removed by Android when the app is uninstalled.</li>
+  <li>Copies that you previously exported or shared are outside Good Old Dashcam's app-specific storage and are not removed automatically when the app is uninstalled or its local data is deleted.</li>
 </ul>
 
-<h2>4. Data collection and sharing</h2>
+<h2>4. Data collection and developer access</h2>
 <p>
-  The developer does <strong>not</strong> collect any of your data. The app contains no analytics,
-  no advertising, no tracking, and no third-party SDKs that gather information. The app does not
-  hold the <code>INTERNET</code> permission and cannot upload data off the device on its own.
+  The developer does <strong>not</strong> receive your recordings, audio, location, sensor telemetry or event
+  history through the app. Good Old Dashcam contains no advertising SDK, analytics SDK, account system or
+  background upload service. Because the app does not request the <code>INTERNET</code> permission, it cannot
+  independently transmit your dashcam data to the developer or a remote server.
 </p>
 
-<h2>5. Sharing you initiate yourself</h2>
+<h2>5. Sharing and exporting that you initiate</h2>
 <p>
-  The app lets you export your event log as a CSV file and share it using Android's standard share
-  sheet (for example by email or to cloud storage). This only happens when you choose to do it, and
-  the data goes wherever you send it. Any handling of that file after it leaves the app is governed
-  by the app or service you share it to, not by Good Old Dashcam.
+  Good Old Dashcam provides explicit controls that let you move or share copies of locally stored data.
+  Depending on the screen and selected action, this can include:
+</p>
+<ul>
+  <li>individual MP4 recordings;</li>
+  <li>incident ZIP packages containing a recording and related GPX/CSV/event information;</li>
+  <li>GPX route and telemetry CSV files;</li>
+  <li>event-log CSV exports; and</li>
+  <li>bulk video/telemetry exports to a folder you select through Android's Storage Access Framework.</li>
+</ul>
+<p>
+  These actions occur only after you choose to share or export. Android or the destination app/service then
+  handles the transferred copy. Any storage, transmission, retention or further sharing by that destination
+  is governed by its own privacy and security practices, not by Good Old Dashcam.
 </p>
 
-<h2>6. Your control</h2>
+<h2>6. Your controls</h2>
 <ul>
   <li>You can turn microphone recording on or off in Settings.</li>
-  <li>You can grant or deny camera, microphone and location permissions at any time in your device settings; the app degrades gracefully when a permission is denied.</li>
-  <li>You can delete individual recordings, clear the event log, or use Privacy &amp; Data → Delete local recordings &amp; telemetry. Uninstalling the app removes its app-specific storage. Copies you previously shared or exported must be deleted from their destination separately.</li>
+  <li>You can turn GPS telemetry on or off in Settings.</li>
+  <li>You can grant or deny camera, microphone and location permissions in Android settings. Camera permission is required for video recording; optional features degrade when their permissions are unavailable.</li>
+  <li>You can lock or unlock recordings, delete individual recordings, clear the event log, and manage loop-storage behaviour.</li>
+  <li>You can use <strong>Privacy &amp; Data → Delete local recordings &amp; telemetry</strong> to remove local recordings, telemetry, temporary export packages and saved event history while keeping app settings.</li>
+  <li>You can export copies before uninstalling if you want to keep them. Copies already shared/exported must be deleted separately from their destination.</li>
 </ul>
 
-<h2>7. Children</h2>
+<h2>7. Foreground and screen-locked recording</h2>
 <p>
-  Good Old Dashcam is a utility for drivers and is not directed at children. It does not knowingly collect
-  any information from anyone, including children.
+  Recording starts only after you press <strong>START</strong> in the app. While a recording session is active,
+  Android shows a persistent foreground-service notification. Recording, optional audio and optional location
+  telemetry may continue after the app is no longer visible or while the screen is locked, until the session
+  is stopped or Android/device conditions interrupt it.
 </p>
 
-<h2>8. Changes to this policy</h2>
+<h2>8. Children</h2>
 <p>
-  If this policy changes, the updated version will be posted at this URL with a new effective date.
+  Good Old Dashcam is a utility intended for drivers and is not directed at children. The app does not create
+  user accounts or send personal information to the developer.
 </p>
 
-<h2>9. Contact</h2>
+<h2>9. Security and limitations</h2>
+<p>
+  App backups are disabled, cleartext network traffic is disabled, app components are private unless Android
+  must launch them, and shared files use scoped content URIs. No mobile application can guarantee that locally
+  stored data is immune from device compromise, operating-system vulnerabilities, physical access or actions
+  taken by other apps after you explicitly share/export a copy.
+</p>
+
+<h2>10. Changes to this policy</h2>
+<p>
+  If this policy changes, the updated version will be posted at the public policy URL with a revised effective date.
+</p>
+
+<h2>11. Contact</h2>
 <p>
   Questions about this policy can be sent to <strong>domnup@gmail.com</strong>.
 </p>

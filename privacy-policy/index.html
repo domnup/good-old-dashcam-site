@@ -27,7 +27,7 @@
 <p class="meta">
   Developer: <strong>Domnup</strong> &nbsp;·&nbsp;
   Contact: <strong>domnup@gmail.com</strong> &nbsp;·&nbsp;
-  Effective date: <strong>24 August 2026</strong>
+  Effective date: <strong>26 September 2026</strong>
 </p>
 
 <div class="highlight">
@@ -39,7 +39,7 @@
 
 <h2>1. What the app does</h2>
 <p>
-  Good Old Dashcam turns an Android phone into a dashcam. It can record loop video, display live
+  Good Old Dashcam turns an Android phone into a dashcam. It can record loop video and user-requested photos, display live
   telemetry such as speed, GPS position and G-force, detect events such as hard braking or impacts,
   protect incident footage, and keep a local event log. It is designed to work fully offline.
 </p>
@@ -47,11 +47,11 @@
 <h2>2. Information the app accesses on your device</h2>
 <p>To provide these features, the app may use the following, all handled locally on your phone:</p>
 <ul>
-  <li><strong>Camera</strong> — to record dashcam video.</li>
+  <li><strong>Camera</strong> — to record dashcam video and capture a JPEG snapshot when you request one.</li>
   <li><strong>Microphone (optional)</strong> — to record audio with video only if you enable audio in Settings and grant microphone permission.</li>
-  <li><strong>Location (optional)</strong> — to provide speed, heading, coordinates and GPX route data when GPS telemetry is enabled. Location is accessed only for a user-started recording session and may continue while that foreground recording session remains active, including when the screen is locked. The app does not request Android background-location permission.</li>
+  <li><strong>Location (GPS/network)</strong> — to provide speed, heading, coordinates and GPX route data when GPS telemetry is enabled. Location is accessed only for a user-started recording session and may continue while that foreground recording session remains active, including when the screen is locked. The app does not request Android background-location permission.</li>
   <li><strong>Motion sensors</strong> — accelerometer and gyroscope data used for G-force telemetry, mounting calibration and incident detection.</li>
-  <li><strong>Device status</strong> — battery temperature, thermal status and storage availability used locally to display status and protect recording reliability.</li>
+  <li><strong>Device status</strong> — battery level, charging status, temperature, thermal status and storage availability used locally to display status and protect recording reliability.</li>
 </ul>
 
 <h2>3. Where your data is stored</h2>
@@ -59,7 +59,8 @@
   Recordings and telemetry are stored in Android app-specific storage on your device. Video is normally
   written under the app's external-files area, while event information and preferences are kept in local
   app storage. Depending on enabled features, the app may create MP4 video, GPX route files, telemetry CSV
-  files, event records and temporary incident/export packages.
+  files, JPEG snapshots, event records and temporary incident/export packages. You can also save a
+  settings backup as a JSON file to a destination you choose through Android.
 </p>
 <ul>
   <li>The app does not upload these files automatically.</li>
@@ -86,7 +87,7 @@
   <li>incident ZIP packages containing a recording and related GPX/CSV/event information;</li>
   <li>GPX route and telemetry CSV files;</li>
   <li>event-log CSV exports; and</li>
-  <li>bulk video/telemetry exports to a folder you select through Android's Storage Access Framework.</li>
+  <li>bulk video/telemetry exports and a settings JSON backup to destinations you select through Android's Storage Access Framework.</li>
 </ul>
 <p>
   These actions occur only after you choose to share or export. Android or the destination app/service then
@@ -100,6 +101,7 @@
   <li>You can turn GPS telemetry on or off in Settings.</li>
   <li>You can grant or deny camera, microphone and location permissions in Android settings. Camera permission is required for video recording; optional features degrade when their permissions are unavailable.</li>
   <li>You can lock or unlock recordings, delete individual recordings, clear the event log, and manage loop-storage behaviour.</li>
+  <li>JPEG snapshots are stored in app-specific storage and removed by local-data deletion or uninstall. The current bulk video export does not include snapshots.</li>
   <li>You can use <strong>Privacy &amp; Data → Delete local recordings &amp; telemetry</strong> to remove local recordings, telemetry, temporary export packages and saved event history while keeping app settings.</li>
   <li>You can export copies before uninstalling if you want to keep them. Copies already shared/exported must be deleted separately from their destination.</li>
 </ul>

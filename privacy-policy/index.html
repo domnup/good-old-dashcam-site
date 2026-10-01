@@ -56,6 +56,7 @@
 
 <h2>3. Where your data is stored</h2>
 <p>
+  MP4 recordings contain clean camera video without telemetry text burned into the image. Telemetry is stored in separate CSV, GPX and SRT files, including for protected incident clips.
   Recordings and telemetry are stored in Android app-specific storage on your device. Video is normally
   written under the app's external-files area, while event information and preferences are kept in local
   app storage. Depending on enabled features, the app may create MP4 video, GPX route files, telemetry CSV and SRT subtitle
@@ -108,7 +109,7 @@
 
 <h2>7. Foreground and screen-locked recording</h2>
 <p>
-  Recording starts only after you press <strong>START</strong> in the app. While a recording session is active,
+  Recording starts through a visible user action in the app. If you enable the charger-start option, connecting power can also start recording while the main app is open; it does not start camera recording from a closed or background app. While a recording session is active,
   Android shows a persistent foreground-service notification. Recording, optional audio and optional location
   telemetry may continue after the app is no longer visible or while the screen is locked, until the session
   is stopped or Android/device conditions interrupt it.
@@ -140,3 +141,4 @@
 
 </body>
 </html>
+
